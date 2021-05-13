@@ -7,7 +7,8 @@ int main(int argc, char *argv[])
 	cin>>num;
 	if(num!=1)
 	{
-	for( int i=2;i<(sqrt(num)+1)&&i!=num;i++)
+        //for(int i=2;i*i<=num;i++)->instead of calling sqrt() "O(sqft(num))"/times.
+	for( int i=2;i<=sqft(num);i++)
 	{
 		if(num%i==0)
 		{
