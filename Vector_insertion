@@ -1,0 +1,56 @@
+//program to insert into vector without using insert()/ function
+#include<iostream.h>
+#include<vector>
+int main( )
+{ int n,x,pos;
+	vector<int>arr;
+	cout<<" no of enter values:";
+	cin>>n;
+    while(n)
+	{cin>>x;
+		arr.push_back(x);
+		n--;
+	}
+	cout<<"enter number to insert:";
+	cin>>x;
+	cout<<"\n enter position:";
+	cin>>pos;
+	arr.push_back(0);
+	auto t=arr.end()-1;
+	for(t;t>(arr.begin()+(pos-1));t--)
+	{
+	*t=*(t-1);
+	}
+	*t=x;
+
+for(auto t2:arr)
+{
+	cout<<endl<<t2;
+}
+	
+	
+//----–-------------------------------------------	
+	
+	//
+	//int *ptr;
+//	ptr=arr.begin();
+	//cout<<*(ptr);--> pointers are not supported with vectors..
+	//vector<int>::iterator it=arr.begin();
+	// iterators are just like pointers but
+	//the differs in printing the address of array
+	//&it
+/*	for(auto it=arr.begin( );it!=arr.end();it++)
+	{
+		
+	cout<<*it<<" "<<long(&it)<<endl;
+	}
+	auto x=40.3455;-->auto has to initialise at the time of declaration
+	
+	cout<<endl<<x<<endl;
+	
+	x=45.56;
+	cout<<x;
+	auto t=find(arr.begin(),arr.end(),78);
+	cout<<endl<<*t<<" "<<long(&t);
+}*/
+}
