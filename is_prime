@@ -1,0 +1,37 @@
+#include<iostream.h>
+#include<stdlib.h>
+int main(int argc, char *argv[])
+{
+	int n;
+        cout<<"enter number: \n";
+	cin>>n;
+	if(n!=1)
+        {	
+           if(((n!=2)&&(n!=3)&&(n!=5)&&(n!=7))&&((n%2==0)||(n%3==0)||(n%5==0)||(n%7==0)))
+	   {
+		cout<<"\n not a prime"<<endl;
+	   }
+	   else
+	   {
+		cout<<endl<<"prime!!!!"<<endl;
+	   }
+	
+         }
+         else
+         {
+	  cout<<endl<<"neither prime nor a consonent"<<endl;
+         }  
+---------------------------------
+Another method
+
+for(int i=2;i*i<=n;i++)
+{
+	if(n%i==0)
+	{
+		cout<<"\n not prime";
+		exit(0);
+	}
+}
+cout<<"\n prime!!";
+	
+
