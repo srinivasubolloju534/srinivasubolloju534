@@ -1,0 +1,34 @@
+#include<iostream.h>
+int dp[50];
+
+
+int facto(int n)
+{  
+	if(n<=1)
+	{dp[n]=n;
+		return n;
+	}
+	if(dp[n]!=-1)
+	{
+		return dp[n];
+	}
+	return dp[n]=n*facto(n-1);
+}
+
+int main(int argc, char *argv[])
+{
+    for(int i=0;i<50;i++)
+    {
+      dp[i]=-1;
+     }
+    int n,c=1;
+    while(c)
+    {
+	cout<<"enter factorial number:";
+	cin>>n;
+	cout<<"\n factorail of  "<<n<<":"<<facto(n)<<endl;
+	cout<<"\n want to continue(0 if not)";
+	cin>>c;
+    }
+	
+}
