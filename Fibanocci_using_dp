@@ -1,0 +1,39 @@
+//fibanocci using dynamic programming.
+
+#include<iostream.h>
+int dp[100];
+
+
+int fib(int n)
+{  
+	if(n==0||n==1)
+	{dp[n]=n;
+		return n;
+	}
+	if(dp[n]==-1)
+	{
+	dp[n]=fib(n-1)+fib(n-2);
+	return dp[n];
+	}
+	else
+	{
+		return dp[n];
+	}
+}
+
+int main(int argc, char *argv[])
+{
+    for(int i=0;i<100;i++)
+    {
+      dp[i]=-1;
+     }
+    int n;
+	cout<<"enter fibanocci limit:";
+	cin>>n;
+	cout<<fib(n-1)<<endl;
+	for(int i=0;dp[i]!=-1;i++)
+	{
+		cout<<dp[i]<<" ";
+	}
+	
+}
