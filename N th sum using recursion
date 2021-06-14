@@ -1,0 +1,47 @@
+/* FINDING N SUM  WITH ALL THE VALUES IN THE ARRAY  
+   arr[] SO THAT PREVIOUS INDEX ELIMENT SHOULD NOT
+   BE USE, ONCE THE NEXT ELIMENT IS USED!!
+   EX: If 2nd ELIMENT is used in sum then 1 st 
+       ELIMENT should not be used again!
+*/
+#include <iostream>
+#include<vector>
+using namespace std;
+
+void print_sum(int ind,int N,int arr[],int n,vector<int>&ds)
+{
+        if(N==0)
+        {
+            cout<<endl;
+            for(int i:ds)
+            {
+                cout<<" "<<i;
+            }
+           return;
+        }
+       if(ind==n)
+       {
+           return;
+       }
+       if(arr[ind]<=N)
+       {
+        ds.push_back(arr[ind]);
+        print_sum(ind,N-arr[ind],arr,n,ds);
+        ds.pop_back();
+       }
+       print_sum(ind+1,N,arr,n,ds);
+}
+
+int main()
+{
+    int N,n;
+    cin>>n>>N;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    vector<int>ds;
+    print_sum(0,N,arr,n,ds);
+    
+}
