@@ -1,0 +1,65 @@
+//finding the max no of parts a given length can be divided!!
+
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int print_sum(int ind,int N,int arr[],int n,vector<int>&ds,int max=0)
+{
+
+    if(N==0)
+    {  
+         int count=0;
+         cout<<endl;
+         for(int i:ds)
+         {   
+             count++;
+             cout<<" "<<i;
+         }
+         if(count>max)
+         {
+             max=count;
+         }
+         return max;
+    }
+    if(ind==n)
+    {
+       return max;
+    }
+   
+    if(arr[ind]<=N)
+    {
+        ds.push_back(arr[ind]);
+        max=print_sum(ind,N-arr[ind],arr,n,ds,max);
+        ds.pop_back();
+    }
+    max=print_sum(ind+1,N,arr,n,ds,max);
+    return max;
+}
+
+int main()
+{
+    int N,n;
+    cin>>n>>N;
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    vector<int>ds;
+    cout<<endl<<"max "<<print_sum(0,N,arr,n,ds)<<" no of parts can be done!!";
+    
+}
+
+
+
+  
+
+
+
+
+
+    
+
+
+ 
