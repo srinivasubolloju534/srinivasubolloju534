@@ -1,0 +1,51 @@
+//first greatest element to the right of every element in the array 
+//Ex:  4  5  2  25
+//out: 5  25 25 -1
+
+#include <iostream>
+#include<vector>
+#include<stack>
+#include<list>
+using namespace std;
+
+int main() {
+	vector<int>arr;
+	int x;
+	stack<int>st;
+	list<int>l;
+	while(cin>>x)
+	{
+	    arr.push_back(x);
+	    
+	}
+	for(auto it=arr.rbegin();it!=arr.rend();it++)
+	{
+	    if(st.empty())
+	    {
+	        l.push_front(-1);
+	    }
+	    else
+	    {
+	        while(!st.empty()&&(*it)>=st.top())
+	        {
+	            st.pop();
+	        }
+	        if(st.empty())
+	        {
+	            l.push_front(-1);
+	        }
+	        else
+	        {
+	            l.push_front(st.top());
+	            
+	        }
+	    }
+	    st.push(*it);
+	    
+	}
+	for(auto i:l)
+	{
+	    cout<<i<<" ";
+	}
+	return 0;
+}
